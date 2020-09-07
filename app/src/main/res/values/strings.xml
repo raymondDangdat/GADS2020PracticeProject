@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Gads Practice Project</string>
+    <string name="submit">Submit</string>
+    <string name="learning">Learning Leaders</string>
+    <string name="skill">Skill IQ Leaders</string>
+    <string name="badge">badge</string>
+    <string name="logo">logo</string>
+    <string name="project_submission">Project Submission</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+</resources>

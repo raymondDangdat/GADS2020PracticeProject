@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bg_corner_radius">35dp</dimen>
+    <dimen name="standard_margin">20dp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="padding_smallest">10dp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="submit_bg_cornerradius">10dp</dimen>
+    <dimen name="tab_indicator_height">4dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
+    <dimen name="card_layout_padding">10dp</dimen>
+    <dimen name="gradient_line_margin">20dp</dimen>
+    <dimen name="dialog_radius">30dp</dimen>
+</resources>
