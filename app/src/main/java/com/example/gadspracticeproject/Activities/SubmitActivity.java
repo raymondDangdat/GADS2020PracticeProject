@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.example.gadspracticeproject.R;
 import com.example.gadspracticeproject.interfaces.SendPostInterface;
 import com.example.gadspracticeproject.models.RetrofitPost;
+
+import org.jetbrains.annotations.NotNull;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,12 +35,7 @@ public class SubmitActivity extends AppCompatActivity {
 
         bindViews();
 
-        textViewSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                processSubmission();
-            }
-        });
+        textViewSubmit.setOnClickListener(view -> processSubmission());
 
     }
 
@@ -105,8 +103,9 @@ public class SubmitActivity extends AppCompatActivity {
             Call<Void>call = postInterface.sendPost(firstName, lastName, email, githubLink);
             call.enqueue(new Callback<Void>() {
                 @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
+                public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
                     if (response.isSuccessful()){
+                        Log.d("Posst", "Success message");
                         alertSentSuccessful();
                     }else {
                         alertFailedToSend();
@@ -114,7 +113,7 @@ public class SubmitActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
+                public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
                     alertFailedToSend();
                 }
             });
@@ -123,7 +122,7 @@ public class SubmitActivity extends AppCompatActivity {
 
     private void alertSentSuccessful() {
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this, R.style.AlertDialog);
-        View view = getLayoutInflater().inflate(R.layout.confirm_submission_layout, null);
+        View view = getLayoutInflater().inflate(R.layout.submission_successful_layout, null);
         builder.setView(view);
         androidx.appcompat.app.AlertDialog alert = builder.create();
         alert.setCanceledOnTouchOutside(true);
